@@ -14,6 +14,7 @@ export function CopilotKitComponent({ runtimeUrl }: { runtimeUrl: string}) {
           title: "Your Assistant",
           initial: "Hi! 👋 How can I assist you today?",
         }}
+        className="h-full"
       />
     </CopilotKit>
   );
