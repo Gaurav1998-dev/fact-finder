@@ -1,16 +1,15 @@
 import { Mastra } from "@mastra/core/mastra";
 import { PinoLogger } from "@mastra/loggers";
 import { LibSQLStore } from "@mastra/libsql";
-import { weatherAgent } from "./agents/weather-agent";
+import { inkeepAgent } from "./agents/inkeep-agent";
 import { registerCopilotKit } from "@ag-ui/mastra";
 
-type WeatherRuntimeContext = {
+type InkeepRuntimeContext = {
   "user-id": string;
-  "temperature-scale": "celsius" | "fahrenheit";
 };
 
 export const mastra = new Mastra({
-  agents: { weatherAgent },
+  agents: { inkeepAgent },
   server: {
     cors: {
       origin: "*",
@@ -18,15 +17,14 @@ export const mastra = new Mastra({
       allowHeaders: ["*"],
     },
     apiRoutes: [
-      registerCopilotKit<WeatherRuntimeContext>({
+      registerCopilotKit<InkeepRuntimeContext>({
         path: "/copilotkit",
-        resourceId: "weatherAgent",
+        resourceId: "inkeepAgent",
         setContext: (c, runtimeContext) => {
           runtimeContext.set(
             "user-id",
             c.req.header("X-User-ID") || "anonymous"
           );
-          runtimeContext.set("temperature-scale", "celsius");
         },
       }),
     ],
