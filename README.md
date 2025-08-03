@@ -4,6 +4,10 @@
 
 This project is an AI-powered fact-finder application that allows users to ask questions about Inkeep and get answers from its documentation. The application then automatically saves the conversation to a Google Sheet. It uses a Next.js frontend with CopilotKit for the chat interface and a Mastra server on the backend to power the AI agent.
 
+## Demo
+
+https://www.loom.com/share/a4389c10cb4743c38f338aa75e2fe86e
+
 ## Features
 
 - **Chat Interface**: A simple and intuitive chat interface to interact with the AI assistant.
@@ -67,13 +71,13 @@ To get the project up and running on your local machine, follow these steps:
 1. **Start the backend server:**
 
    ```bash
-   npm run start --workspace=mastra-server
+   npm run start
    ```
 
 2. **Start the frontend development server:**
 
    ```bash
-   npm run dev --workspace=next-app
+   npm run dev
    ```
 
 Open your browser and navigate to `http://localhost:3000` to see the application in action.
